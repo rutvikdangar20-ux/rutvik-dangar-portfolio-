@@ -1,0 +1,50 @@
+{
+  "entities": {
+    "ProjectImage": {
+      "title": "Project Image",
+      "description": "Custom uploaded project images",
+      "type": "object",
+      "properties": {
+        "projectId": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["projectId", "imageUrl"]
+    },
+    "VisitorCounter": {
+      "title": "Visitor Counter",
+      "description": "Total unique visit counter tracking",
+      "type": "object",
+      "properties": {
+        "count": { "type": "integer" }
+      },
+      "required": ["count"]
+    },
+    "Profile": {
+      "title": "Profile Data",
+      "description": "Mutable executive portrait, name, bio, and dynamic title",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "title": { "type": "string" },
+        "bio": { "type": "string" },
+        "photoUrl": { "type": "string" }
+      },
+      "required": ["name", "title", "bio", "photoUrl"]
+    }
+  },
+  "firestore": {
+    "/project_images/{projectId}": {
+      "schema": "ProjectImage",
+      "description": "Persistent custom images uploaded for MileCharge and ANANTA"
+    },
+    "/stats/{id}": {
+      "schema": "VisitorCounter",
+      "description": "Global statistics and unique visitor counter metrics"
+    },
+    "/settings/{id}": {
+      "schema": "Profile",
+      "description": "Owner dynamic biography settings"
+    }
+  }
+}
